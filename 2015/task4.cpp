@@ -8,7 +8,9 @@ template <unsigned int p>
 class primefield{
 	unsigned int a;
 public:
-	primefield<p>(unsigned int n):a(n%p){};
+	primefield<p>(int n) { 
+		a = n < 0 ? (n+p)%p : n%p; 
+	};
 	primefield<p>& operator+= (const primefield<p>& q);
 	primefield<p> operator* (const primefield<p>& q) const;
 	primefield<p>& operator*= (const primefield<p>& q);
@@ -111,9 +113,9 @@ int main() {
 	//cout << "a / b = " << a / b << endl;
 	//cout << "a^10 = " << power(a, 10) << endl;
 	//cout << "a! = " << factorial(a) << endl;
-	cout << power(primefield<79>(53),10) << endl;
-	cout << primefield<79>(3)/primefield<79>(21)+primefield<79>(5)/primefield<79>(67) << endl;
-	cout << primefield<79>(3)/primefield<79>(21)-primefield<79>(5)/primefield<79>(67) << endl;
+	cout << power(primefield<79>(53), 10) << endl;
+	cout << primefield<79>(3) / primefield<79>(21) + primefield<79>(5) / primefield<79>(67) << endl;
+	cout << primefield<79>(3) / primefield<79>(21) - primefield<79>(5) / primefield<79>(67) << endl;
 	cout << factorial(primefield<79>(50)) << endl;
 	primefield<79> partial_sum(0);
 	for (unsigned int i = 1; i <= 50; ++i) {
