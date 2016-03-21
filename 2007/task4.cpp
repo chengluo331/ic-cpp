@@ -77,7 +77,7 @@ public:
 		return point(sqrt(r._x),sqrt(r._y))*point(cos(2 * M_PI*u1._x), cos(2 * M_PI*u1._y))*_s + _u;
 	};
 	double pdf(const point & p){
-		return 1.0 / 2.0 / _s._x / _s._y*exp(-0.5*((p._x - _u._x)*(p._x - _u._x) / _s._x / _s._x + (p._y - _u._y)*(p._y - _u._y) / _s._y / _s._y));
+		return 1.0 / 2.0 / M_PI/ _s._x / _s._y*exp(-0.5*((p._x - _u._x)*(p._x - _u._x) / _s._x / _s._x + (p._y - _u._y)*(p._y - _u._y) / _s._y / _s._y));
 	};
 	double cdf(const point & x) {
 		assert(false && "that's impossible!");
