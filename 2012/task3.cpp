@@ -31,7 +31,7 @@ int Laurent_polynomial<T>::getN() const{
 template <typename T>
 T Laurent_polynomial<T>::value(T x) const{
 	T v(0);
-	for (int i = -_N; i < _N; i++)
+	for (int i = -_N; i <= _N; i++)
 	{
 		v += (*this)[i]* pow(x, i);
 	}
