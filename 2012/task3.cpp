@@ -34,6 +34,7 @@ T Laurent_polynomial<T>::value(T x) const{
 	for (int i = -_N; i <= _N; i++)
 	{
 		v += (*this)[i]* pow(x, i);
+		cout << pow(x,i) << endl;
 	}
 	return v;
 }
