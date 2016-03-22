@@ -147,7 +147,9 @@ T interpolate(T (*f)(double), const vector<double>& partition){
 	return s.intR();
 }
 
-
+double f(double x){
+	return exp(x*x)+1.0/(1+x);
+}
 
 int main(){
 
@@ -159,6 +161,10 @@ int main(){
 	partition.clear();
 	logarithmic_partition(partition);
 	cout << interpolate<double>(sin, partition) << endl;
+	
+	partition.clear();
+	uniform_partition(partition);
+	cout << interpolate<double>(f, partition) << endl;
 	
 	return 0;
 }

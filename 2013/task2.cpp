@@ -54,7 +54,7 @@ double quaternion::norm() const{
 
 quaternion quaternion::inv() const{
 	double n = (*this).norm();
-	return quaternion(1.0 / n*n)*((*this).c());
+	return quaternion(1.0 / (n*n))*((*this).c());
 }
 
 void quaternion::print(ostream& os) const{
